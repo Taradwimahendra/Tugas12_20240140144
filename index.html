@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Portal - Personal Records</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">M</div>
+                <span>MAHENDRA.CORP</span>
+            </div>
+            <nav>
+                <div class="nav-item active" id="nav-personal" onclick="switchTab('personal')">
+                    <i class="fa-solid fa-id-card"></i> Personal Info
+                </div>
+                <div class="nav-item" id="nav-experience" onclick="switchTab('experience')">
+                    <i class="fa-solid fa-briefcase"></i> Experience
+                </div>
+                <div class="nav-item" id="nav-education" onclick="switchTab('education')">
+                    <i class="fa-solid fa-graduation-cap"></i> Education
+                </div>
+            </nav>
+
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2>Employee Registration Form</h2>
+                <p>Silakan lengkapi biodata resmi Anda di bawah ini.</p>
+            </header>
+
+            <div id="tab-personal" class="tab-content">
+                <div class="grid-container">
+                    <section class="content-card">
+                        <div class="section-title">Informasi Dasar</div>
+                        <div class="form-grid">
+                            <div class="form-group full">
+                                <label>Nama Lengkap</label>
+                                <input type="text" id="inNama" placeholder="Masukkan nama lengkap...">
+                            </div>
+                            <div class="form-group">
+                                <label>Email Profesional</label>
+                                <input type="email" id="inEmail" placeholder="nama@perusahaan.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Divisi Penempatan</label>
+                                <select id="inProdi">
+                                    <option value="" disabled selected>Pilih Divisi...</option>
+                                    <option value="Software Engineering">Software Engineering</option>
+                                    <option value="Information Security">Information Security</option>
+                                    <option value="Project Management">Project Management</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tanggal Bergabung</label>
+                                <input type="date" id="inTanggal">
+                            </div>
+                            <div class="form-group">
+                                <label>Level Senioritas</label>
+                                <select id="inLevel">
+                                    <option value="Junior">Junior Level</option>
+                                    <option value="Associate">Associate Level</option>
+                                    <option value="Senior">Senior Level</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn-submit" onclick="submitData()">SIMPAN & UPDATE PROFIL</button>
+                    </section>
+
+                    <section class="content-card review-section">
+                        <div class="section-title">Review Profile</div>
+                        <div class="id-card-preview" id="previewCard">
+                            <div class="card-header">
+                                <i class="fa-solid fa-microchip"></i>
+                                <span>ID VERIFIED</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="photo-box"><i class="fa-solid fa-user-tie"></i></div>
+                                <div class="user-details">
+                                    <h4 id="outNama">---</h4>
+                                    <p id="outEmail">---</p>
+                                    <div class="badge-row">
+                                        <span class="badge" id="outLevel">LEVEL</span>
+                                        <span class="badge secondary" id="outProdi">DEPARTMENT</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <small>Registered Date:</small>
+                                <p id="outTanggal">--/--/----</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div id="tab-experience" class="tab-content" style="display:none;">
+                <section class="content-card">
+                    <div class="section-title">Riwayat Pengalaman Kerja</div>
+                    <div id="experience-list"></div>
+                    <button class="btn-add" onclick="addExperience()"><i class="fa-solid fa-plus"></i> Tambah Pengalaman</button>
+                    <div id="experience-display-list" class="display-container"></div>
+                </section>
+            </div>
+
+            <div id="tab-education" class="tab-content" style="display:none;">
+                <section class="content-card">
+                    <div class="section-title">Riwayat Pendidikan</div>
+                    <div class="form-group full" style="margin-bottom: 25px;">
+                        <label>Upload Berkas Ijazah (PDF/JPG)</label>
+                        <input type="file" id="Ijazah" accept=".pdf,.jpg,.jpeg,.png">
+                    </div>
+                    <div id="education-list"></div>
+                    <button class="btn-add" onclick="addEducation()"><i class="fa-solid fa-plus"></i> Tambah Pendidikan</button>
+                    <div id="education-display-list" class="display-container"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
